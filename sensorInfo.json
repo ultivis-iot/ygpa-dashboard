@@ -1,0 +1,76 @@
+{
+    "sensors": [
+        {
+            "fragment": ["Humid", "PM", "CO2"],
+            "name": "월드마린센터1F",
+            "source": "5726560",
+            "accuracy": "70.7"
+        },
+        {
+            "fragment": ["Humid", "PM", "CO2"],
+            "name": "월드마린센터13F",
+            "source": "5726590",
+            "accuracy": "72.8"
+        },
+        {
+            "fragment": ["Humid", "PM", "CO2"],
+            "name": "월드마린센터19F",
+            "source": "5726602",
+            "accuracy": "71.0"
+        },
+        {
+            "fragment": ["Humid", "PM", "CO2"],
+            "name": "여수사업소 사무실",
+            "source": "5726616",
+            "accuracy": "71.8"
+        },
+        {
+            "fragment": ["Humid", "PM", "CO2"],
+            "name": "여수연안여객터미널 대합실",
+            "source": "5726618",
+            "accuracy": "71.5"
+        },
+        {
+            "fragment": ["Humid", "PM", "CO2"],
+            "name": "여수엑스포터미널 대합실",
+            "source": "5726625",
+            "accuracy": "71.5"
+        },
+        {
+            "fragment": ["Humid", "PM", "CO2"],
+            "name": "낙포부두 청경실",
+            "source": "5726634",
+            "accuracy": "71.6"
+        },
+        {
+            "fragment": ["Humid", "PM", "CO2"],
+            "name": "광양항운노조 원료지부",
+            "source": "7961314",
+            "accuracy": "71.6"
+        },
+        {
+            "fragment": ["Humid", "PM", "voc"],
+            "name": "중흥부두(1)",
+            "source": "5726640",
+            "accuracy": "71.0"
+        },
+        {
+            "fragment": ["Humid", "PM", "voc"],
+            "name": "중흥부두(2)",
+            "source": "5726641",
+            "accuracy": "71.5"
+        },
+        {
+            "fragment": ["Humid", "PM", "voc"],
+            "name": "석유화학부두",
+            "source": "5726645",
+            "accuracy": "71.7"
+        },
+        {
+            "fragment": ["Humid", "PM", "voc"],
+            "name": "낙포부두",
+            "source": "5726646",
+            "accuracy": "71.1"
+        }
+    ]
+}

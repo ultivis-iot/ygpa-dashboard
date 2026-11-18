@@ -1,0 +1,6 @@
+# 빌드 산출물(scripts/build-site.mjs, scripts/collect.mjs)
+site/
+
+# 로컬 환경변수 — 인증 값은 저장소에 두지 않는다
+.env
+.env.*
