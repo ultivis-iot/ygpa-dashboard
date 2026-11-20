@@ -49,9 +49,9 @@
             "accuracy": "71.6"
         },
         {
-            "fragment": ["Humid", "PM", "voc"],
+            "fragment": ["Humid", "PM", "CO2"],
             "name": "중흥부두(1)",
-            "source": "5726640",
+            "source": "910729346680000",
             "accuracy": "71.0"
         },
         {
