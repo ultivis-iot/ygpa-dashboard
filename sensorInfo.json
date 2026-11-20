@@ -55,19 +55,19 @@
             "accuracy": "71.0"
         },
         {
-            "fragment": ["Humid", "PM", "voc"],
+            "fragment": ["Humid", "PM", "CO2"],
             "name": "중흥부두(2)",
             "source": "5726641",
             "accuracy": "71.5"
         },
         {
-            "fragment": ["Humid", "PM", "voc"],
+            "fragment": ["Humid", "PM", "CO2"],
             "name": "석유화학부두",
             "source": "5726645",
             "accuracy": "71.7"
         },
         {
-            "fragment": ["Humid", "PM", "voc"],
+            "fragment": ["Humid", "PM", "CO2"],
             "name": "낙포부두",
             "source": "5726646",
             "accuracy": "71.1"
