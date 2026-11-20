@@ -3,19 +3,19 @@
         {
             "fragment": ["Humid", "PM", "CO2"],
             "name": "월드마린센터1F",
-            "source": "5726560",
+            "source": "910705046700000",
             "accuracy": "70.7"
         },
         {
             "fragment": ["Humid", "PM", "CO2"],
             "name": "월드마린센터13F",
-            "source": "5726590",
+            "source": "910711794120000",
             "accuracy": "72.8"
         },
         {
             "fragment": ["Humid", "PM", "CO2"],
             "name": "월드마린센터19F",
-            "source": "5726602",
+            "source": "910713724990000",
             "accuracy": "71.0"
         },
         {
