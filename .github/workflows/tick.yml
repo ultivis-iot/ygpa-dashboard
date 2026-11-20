@@ -1,5 +1,5 @@
-# 10분마다 publish.yml 을 실행한다.
-# GitHub 의 예약 실행(cron)은 부하가 있으면 몇 시간씩 건너뛰므로, 이 워크플로가 다음 10분 지점까지 기다렸다가
+# 1분마다 publish.yml 을 실행한다.
+# GitHub 의 예약 실행(cron)은 부하가 있으면 몇 시간씩 건너뛰므로, 이 워크플로가 다음 1분 지점(+10초)까지 기다렸다가
 # publish.yml 을 깨우고 자기 자신을 다시 실행해 사슬을 잇는다(workflow_dispatch 는 기본 토큰으로 호출할 수 있다).
 # 20분마다 도는 cron 은 사슬이 끊겼을 때 되살리는 보조 장치다. 동시 실행 그룹이 하나라 사슬은 둘로 늘어나지 않는다.
 # 저장소 변수 COLLECT_ENABLED 가 'true' 가 아니면 아무것도 하지 않고 사슬이 끝난다(끄는 스위치).
@@ -22,18 +22,18 @@ jobs:
   tick:
     if: vars.COLLECT_ENABLED == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 5
     env:
       GH_TOKEN: ${{ github.token }}
       REPO: ${{ github.repository }}
     steps:
-      - name: 다음 10분 지점(+3분)까지 기다렸다가 게시를 실행한다
+      - name: 다음 1분 지점(+10초)까지 기다렸다가 게시를 실행한다
         run: |
           now=$(date +%s)
-          next=$(( (now / 600 + 1) * 600 + 180 ))
-          # 이번 10분 구간의 +3분 지점이 아직 앞이면(5초 넘게 남았으면) 그 지점을 쓴다.
-          prev=$(( (now / 600) * 600 + 180 ))
-          [ $prev -gt $((now + 5)) ] && next=$prev
+          next=$(( (now / 60 + 1) * 60 + 10 ))
+          # 이번 분의 +10초 지점이 아직 앞이면(3초 넘게 남았으면) 그 지점을 쓴다.
+          cur=$(( (now / 60) * 60 + 10 ))
+          [ $cur -gt $((now + 3)) ] && next=$cur
           wait=$(( next - now ))
           echo "대기 ${wait}초 후 게시 실행"
           sleep "$wait"
