@@ -238,5 +238,5 @@ function appendInfoArea(dataObj) {
 
 (() => {
     callApi();
-    setInterval(callApi, 1000 * 60 * 1); //1분 단위 리로드
+    setInterval(callApi, 1000 * 20); //20초 단위 리로드
 })();

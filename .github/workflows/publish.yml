@@ -17,20 +17,24 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
-    # 인증 값을 넣기 전에는 예약 실행이 실패 알림을 쌓지 않게, 저장소 변수 COLLECT_ENABLED 가 'true' 일 때만 돈다.
+  publish:
+    # 인증 값을 넣기 전에는 실행이 실패 알림을 쌓지 않게, 저장소 변수 COLLECT_ENABLED 가 'true' 일 때만 돈다.
     if: vars.COLLECT_ENABLED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       # 액션은 태그가 아니라 커밋 해시로 고정한다(공개 저장소에서 Secrets 를 쓰므로).
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           persist-credentials: false
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
-        with:
-          node-version: 22
-      # 빌드가 site/ 를 지우므로 반드시 수집보다 먼저 한다.
+      # 빌드가 site/ 를 지우므로 반드시 수집보다 먼저 한다. Node 는 실행기에 기본으로 있다(18 이상).
       - name: 정적 사이트 만들기
         run: node scripts/build-site.mjs
       - name: 센서 값 모으기
@@ -42,17 +46,5 @@ jobs:
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:
           path: site
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
